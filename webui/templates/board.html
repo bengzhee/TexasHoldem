@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <h1>This is the board page.</h1>
+    </div>
+
+    <div class="row p-1">
+        <div class="col-2">
+            <label>Computer</label>
+        </div>
+        <div class="col-6">
+            {% for card in com_hand %}
+            <img src="{{ url_for('static', filename='resources/' + card.show() + '.jpg') }}" width="10%">
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="row p-1">
+        <div class="col-2">
+            <label>Board</label>
+        </div>
+        <div class="col-6">
+            {% for card in community %}
+            <img src="{{ url_for('static', filename='resources/' + card.show() + '.jpg') }}" width="10%">
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="row p-1">
+        <div class="col-2">
+            <label>Player</label>
+        </div>
+        <div class="col-6">
+            {% for card in player_hand %}
+            <img src="{{ url_for('static', filename='resources/' + card.show() + '.jpg') }}" width="10%">
+            {% endfor %}
+        </div>
+    </div>
+
+</div>
+{% endblock %}
